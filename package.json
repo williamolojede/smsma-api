@@ -8,9 +8,14 @@
   "license": "MIT",
   "scripts": {
     "start": "babel-node index.js",
-    "start:dev": "nodemon --exec babel-node index.js"
+    "start:dev": "nodemon --exec babel-node index.js",
+    "db:migrate": "yarn sequelize-cli:es6 db:migrate",
+    "db:migrate:undo": "yarn sequelize-cli:es6 db:migrate:undo:all",
+    "sequelize-cli:es6": "./node_modules/.bin/babel-node ./node_modules/.bin/sequelize $*",
+    "heroku-postbuild": "yarn db:migrate"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.15.3",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
@@ -19,6 +24,7 @@
   "dependencies": {
     "@babel/core": "^7.4.0",
     "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "body-parser": "^1.18.3",
     "dotenv": "^7.0.0",
