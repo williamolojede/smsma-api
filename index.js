@@ -28,15 +28,27 @@ app.use((req, res, next) => {
 // error handler
 // define as the last app.use callback
 /* eslint no-unused-vars: 0 */
-app.use(({ message, statusCode }, req, res, next) => {
-  // defaults to internal server error
-  res
-    .status(statusCode || 500)
-    .send({
+app.use(
+  (
+    {
       message,
-      status: 'fail',
-    });
-});
+      statusCode = 500,
+      stack,
+      type,
+    },
+    req, res, next,
+  ) => {
+    if (type) logger.info(`TYPE: ${type}(tip: you might want to handle this error type in the error generator)`);
+    if (statusCode === 500) logger.info(stack);
+
+    res
+      .status(statusCode)
+      .send({
+        message: statusCode === 500 ? 'Internal server error' : message,
+        status: 'fail',
+      });
+  },
+);
 
 app.listen(PORT, () => {
   logger.info(`Server is running on port: ${PORT}`);

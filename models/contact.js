@@ -15,8 +15,8 @@ export default class Contact extends Model {
       },
       validate: {
         is: {
-          args: /^[A-Za-z][A-Za-z .-]{2,10}$/i,
-          msg: 'name must start with a letter, can have spaces, fullstops or hyphens and be 2 - 10 characters long.',
+          args: /^[A-Za-z][A-Za-z .-]{2,20}$/i,
+          msg: 'name must start with a letter, can have spaces, fullstops or hyphens and be 2 - 20 characters long.',
         },
       },
       set(value) {
