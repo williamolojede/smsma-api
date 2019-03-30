@@ -12,7 +12,8 @@
     "db:migrate": "yarn sequelize-cli:es6 db:migrate",
     "db:migrate:undo": "yarn sequelize-cli:es6 db:migrate:undo:all",
     "sequelize-cli:es6": "./node_modules/.bin/babel-node ./node_modules/.bin/sequelize $*",
-    "heroku-postbuild": "yarn db:migrate"
+    "heroku-postbuild": "yarn db:migrate",
+    "heroku:logs": "heroku logs --tail -a smsmaapi"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

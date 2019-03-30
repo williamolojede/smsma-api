@@ -7,4 +7,9 @@ export default {
       name: Joi.string().required().min(2).max(20).trim(),
     }),
   },
+  getContact: {
+    params: {
+      id: Joi.number().required(),
+    },
+  },
 };
