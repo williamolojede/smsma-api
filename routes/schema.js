@@ -21,4 +21,9 @@ export default {
       name: Joi.string().min(2).max(20).trim(),
     }).or('phone', 'name'),
   },
+  deleteContact: {
+    params: {
+      id: Joi.number().required(),
+    },
+  },
 };

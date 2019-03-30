@@ -65,3 +65,21 @@ export const updateContact = async (req) => {
     statusCode: 200,
   };
 };
+
+export const deleteContact = async (req) => {
+  const { id } = req.params;
+  const contact = await Contact.destroy({ where: { id } });
+
+  if (contact === 0) {
+    const err = new Error('Contact not found!');
+    err.type = 'notfound';
+    return Promise.reject(err);
+  }
+
+  return {
+    payload: {
+      message: 'Contact deleted successfully!',
+    },
+    statusCode: 200,
+  };
+};
