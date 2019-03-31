@@ -1,7 +1,12 @@
 import express from 'express';
 
 import { validateRequest, asyncWrapMiddleware } from '../middlewares';
-import { createContact, getContact, updateContact, deleteContact } from '../controllers';
+import {
+  createContact,
+  getContact,
+  updateContact,
+  deleteContact,
+} from '../controllers';
 import schema from './schema';
 
 const router = express.Router();

@@ -38,4 +38,10 @@ export default {
       messageId: Joi.number().required(),
     },
   },
+  getMessages: {
+    query: {
+      contactId: Joi.number().required(),
+      type: Joi.string().valid(['sent', 'received', 'all']),
+    },
+  },
 };
