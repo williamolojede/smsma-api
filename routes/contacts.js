@@ -7,8 +7,8 @@ import schema from './schema';
 const router = express.Router();
 
 router.post('/', validateRequest(schema.createContact), asyncWrapMiddleware(createContact));
-router.get('/:id', validateRequest(schema.getContact), asyncWrapMiddleware(getContact));
-router.put('/:id', validateRequest(schema.updateContact), asyncWrapMiddleware(updateContact));
-router.delete('/:id', validateRequest(schema.deleteContact), asyncWrapMiddleware(deleteContact));
+router.get('/:contactId', validateRequest(schema.getContact), asyncWrapMiddleware(getContact));
+router.put('/:contactId', validateRequest(schema.updateContact), asyncWrapMiddleware(updateContact));
+router.delete('/:contactId', validateRequest(schema.deleteContact), asyncWrapMiddleware(deleteContact));
 
 export default router;

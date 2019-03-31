@@ -9,12 +9,12 @@ export default {
   },
   getContact: {
     params: {
-      id: Joi.number().required(),
+      contactId: Joi.number().required(),
     },
   },
   updateContact: {
     params: {
-      id: Joi.number().required(),
+      contactId: Joi.number().required(),
     },
     body: Joi.object().keys({
       phone: Joi.string().length(11).regex(/^\d{11}$/).trim(),
@@ -23,7 +23,7 @@ export default {
   },
   deleteContact: {
     params: {
-      id: Joi.number().required(),
+      contactId: Joi.number().required(),
     },
   },
   createMessage: {
@@ -32,5 +32,10 @@ export default {
       content: Joi.string().required().trim(),
       senderId: Joi.number().required(),
     }),
+  },
+  deleteMessage: {
+    params: {
+      messageId: Joi.number().required(),
+    },
   },
 };

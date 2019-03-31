@@ -15,9 +15,9 @@ export const createContact = async (req) => {
 };
 
 export const getContact = async (req) => {
-  const { id } = req.params;
+  const { contactId } = req.params;
 
-  const contact = await Contact.findByPk(id, {
+  const contact = await Contact.findByPk(contactId, {
     include: [
       {
         model: Message,
@@ -47,7 +47,7 @@ export const getContact = async (req) => {
 
 export const updateContact = async (req) => {
   const { params, body } = req;
-  const contact = await Contact.findByPk(params.id);
+  const contact = await Contact.findByPk(params.contactId);
 
   if (!contact) {
     const err = new Error('Contact not found!');
@@ -67,8 +67,8 @@ export const updateContact = async (req) => {
 };
 
 export const deleteContact = async (req) => {
-  const { id } = req.params;
-  const contact = await Contact.destroy({ where: { id } });
+  const { contactId } = req.params;
+  const contact = await Contact.destroy({ where: { id: contactId } });
 
   if (contact === 0) {
     const err = new Error('Contact not found!');
