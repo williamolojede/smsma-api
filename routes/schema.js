@@ -26,4 +26,11 @@ export default {
       id: Joi.number().required(),
     },
   },
+  createMessage: {
+    body: Joi.object().keys({
+      receiverId: Joi.number().required(),
+      content: Joi.string().required().trim(),
+      senderId: Joi.number().required(),
+    }),
+  },
 };

@@ -8,7 +8,7 @@ export const createContact = async (req) => {
   return {
     payload: {
       message: 'Contact created successfully!',
-      contact,
+      data: contact,
     },
     statusCode: 201,
   };
@@ -39,7 +39,7 @@ export const getContact = async (req) => {
   return {
     payload: {
       message: 'Contact retrieved successfully!',
-      contact,
+      data: contact,
     },
     statusCode: 200,
   };
@@ -60,7 +60,7 @@ export const updateContact = async (req) => {
   return {
     payload: {
       message: 'Contact updated successfully!',
-      contact,
+      data: contact,
     },
     statusCode: 200,
   };
